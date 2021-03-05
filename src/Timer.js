@@ -18,10 +18,23 @@ class Timer extends Component {
       this.props.updateInterval * 1000
     );
   }
+  componentDidUpdate(){
+  
+  }
+  shouldComponentUpdate(nextProps, nextState) {
+    if (this.state.time === nextState.time) {
+      return false
+    }
+    return true
+  }
+
 
   componentWillUnmount() {
     clearInterval(this.interval);
   }
+
+
+
 
   render() {
     const { time, color, logText } = this.state;
